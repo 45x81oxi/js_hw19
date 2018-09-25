@@ -44,7 +44,7 @@ class Http {
     // Make DELETE Request
     delete(url) {
         return new Promise((resolve, reject) => {
-            fetch(url, { method: "DELETE" })
+            fetch(url, {method: "DELETE"})
                 .then(res => res.json())
                 .then(data => resolve(data))
                 .catch(err => reject(err));

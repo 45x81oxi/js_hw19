@@ -1,7 +1,7 @@
 const FirestoreInit = (function () {
-    var instance;
+    let instance;
     // Initialize Firebase
-    var config = {
+    let config = {
         apiKey: "AIzaSyCXw12HuDoWlcvBt8wJJWSRJnWt0FWGi2w",
         authDomain: "news-app-932cc.firebaseapp.com",
         databaseURL: "https://news-app-932cc.firebaseio.com",
@@ -13,7 +13,7 @@ const FirestoreInit = (function () {
 
 
 // Initialize Cloud Firestore through Firebase
-    var db = firebase.firestore();
+    let db = firebase.firestore();
 
     function getDb() {
         return db;
@@ -30,11 +30,5 @@ const FirestoreInit = (function () {
             return instance || (instance = createInstance());
         }
     }
-    //  db.collection("favorite-news").get().then((querySnapshot) => {
-    //      querySnapshot.forEach((doc) => {
-    //      console.log(`${doc.id}`);
-    //          console.dir(doc.data());
-    //     });
-    // });
 
 })();

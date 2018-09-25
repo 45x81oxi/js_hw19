@@ -44,9 +44,3 @@ function transformElement(element) {
 
     animateAction();
 }
-
-
-
-
-
-

@@ -38,14 +38,14 @@ function onLoad(e) {
             else ui.showInfo('No Selected News!');
         })
         .catch(err => {
-            console.log(err);
+            ui.showError(err);
         })
 }
 
 function onLogout() {
     auth.logout()
         .then(() => window.location = "login.html")
-        .catch(err => console.log(err));
+        .catch(err => ui.showError(err));
 }
 
 
@@ -71,9 +71,8 @@ function onRemoveFavorite(e) {
                     ui.showInfo('No Selected News!');
 
             })
-            .catch(err => console.log(err));
+            .catch(err => ui.showError(err));
     }
-
 }
 
 

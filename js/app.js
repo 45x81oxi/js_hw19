@@ -51,7 +51,7 @@ let resources = [];
                 $('select').formSelect();
             });
         })
-        .catch(err => ui.showError(err))
+        .catch(err => ui.showError(err));
 }());
 
 // Init elements
@@ -96,13 +96,9 @@ function onChoice(e) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    //генерируем select
-    // ui.createSelect(resources, 'sources', 'afterbegin');
-
     //генерируем select категорий
     ui.createSelect(categories, 'category', 'beforeend');
     document.querySelector('.category').style.display = 'none';
-
 });
 
 
@@ -129,7 +125,6 @@ function onChange(val) {
 
                 // сохраняем новости в хранилище news-store
                 newsStore.setNews(response.articles);
-
             } else {
                 val === 'category' ? ui.showInfo(`Новости по ${selectChoice.value} по стране ${select.value} не найдены`) :
                     ui.showInfo(`Новостей по ${selectChoice.value} не найдено!`);
@@ -162,7 +157,7 @@ function resetOptions() {
 function onLogout() {
     auth.logout()
         .then(() => window.location = "login.html")
-        .catch(err => console.log(err));
+        .catch(err => ui.showError(err));
 }
 
 function addFavorite(e) {
@@ -175,8 +170,6 @@ function addFavorite(e) {
                 // вывод сообщения об успешном добавлении новости в избранное
                 M.toast({html: 'News added to favorites!', classes: 'deep-orange darken-1', displayLength: 1000});
             })
-            .catch(err => {
-                console.log(err);
-            })
+            .catch(err => ui.showError(err));
     }
 }
